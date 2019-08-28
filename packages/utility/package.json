@@ -1,0 +1,60 @@
+{
+    "name": "@layout_generator/utility",
+    "private": true,
+    "author": "@tajpouria",
+    "version": "1.0.1",
+    "description": "Utility",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "keywords": [
+        "json schema"
+    ],
+    "repository": {
+        "type": "git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "watch:ts": "tsc -w",
+        "test": "react-scripts-ts test --env=jsdom",
+        "build": "npm run build:prepare && tsc",
+        "build:clean": "rimraf lib && npm run build:copy-static-assets",
+        "build:prepare": "npm run build:copy-static-assets",
+        "build:copy-static-assets": "node ./commands/copy-static-assets.js",
+        "build:commit-push": "git aa && git commit -m \"$COMMIT\" && git push",
+        "update:form-designer": "cd ../FormDesigner && yarn add 'git+http://server.rismun.com:8080/tfs/Projects/Rismun-NeoGen/_git/Utility'",
+        "update:form-generator": "cd ../FormGenerator && yarn add 'git+http://server.rismun.com:8080/tfs/Projects/Rismun-NeoGen/_git/Utility'",
+        "update:code-designer": "cd ../CodeDesigner && yarn add 'git+http://server.rismun.com:8080/tfs/Projects/Rismun-NeoGen/_git/Utility'",
+        "update:ide": "cd ../IDE && yarn add 'git+http://server.rismun.com:8080/tfs/Projects/Rismun-NeoGen/_git/Utility'",
+        "build:ud": "yarn build && npm run build:commit-push && npm run update:form-designer && npm run update:form-generator && npm run update:code-designer && npm run update:ide"
+    },
+    "dependencies": {
+        "@material-ui/core": "^4.3.3",
+        "@material-ui/icons": "^4.2.1",
+        "classnames": "2.2.6",
+        "lodash": "4.17.11",
+        "react": "16.8.6",
+        "react-dom": "16.8.6",
+        "uuid": "^3.3.3"
+    },
+    "devDependencies": {
+        "@types/classnames": "2.2.7",
+        "@types/lodash": "4.14.132",
+        "@types/node": "12.0.3",
+        "@types/react": "16.8.19",
+        "@types/react-dom": "16.8.4",
+        "@types/shelljs": "0.8.5",
+        "@types/uuid": "^3.4.5",
+        "@types/webpack-env": "1.13.9",
+        "rimraf": "2.6.3",
+        "shelljs": "0.8.3",
+        "tslib": "1.9.3",
+        "typescript": "3.5.1"
+    },
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "private"
+    },
+    "engines": {
+        "node": ">=10.0.0"
+    }
+}

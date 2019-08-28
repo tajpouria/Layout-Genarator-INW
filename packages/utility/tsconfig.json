@@ -1,0 +1,47 @@
+{
+    "compilerOptions": {
+		"skipLibCheck": true,
+        "baseUrl": ".",
+        "outDir": "lib/",
+        "module": "commonjs",
+        "target": "es5",
+        "lib": [
+            "esnext",
+            "dom"
+        ],
+        "sourceMap": true,
+        "allowJs": false,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "rootDir": "./src",
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "importHelpers": true,
+        "strictNullChecks": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "../../node_modules/@types"
+        ],
+        "paths": {
+            "*": [ "node_modules/@types/*", "*"]
+        },
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "declaration": true
+    },
+    "exclude": [
+        "node_modules",
+        "lib",
+        "scripts",
+        "acceptance-tests",
+        "webpack",
+        "jest",
+        "src/setupTests.ts"
+    ]
+}

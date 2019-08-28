@@ -1,0 +1,10 @@
+export enum Generator {
+    LAYOUT_GENERATOR_INPUT_CHANGE = "@@layout_generator@ide/LAYOUT_GENERATOR_INPUT_CHANGE",
+    LAYOUT_GENERATOR_UPSIDE_LAYOUT_CONTAINER_UPDATE = "@@layout_generator@ide/LAYOUT_GENERATOR_UPSIDE_LAYOUT_CONTAINER_UPDATE",
+    LAYOUT_GENERATOR_DOWNSIDE_LAYOUT_CONTAINER_UPDATE = "@@layout_generator@ide/LAYOUT_GENERATOR_DOWNSIDE_LAYOUT_CONTAINER_UPDATE"
+}
+
+export interface IGeneratorAction {
+    type: Generator;
+    payload: any;
+}

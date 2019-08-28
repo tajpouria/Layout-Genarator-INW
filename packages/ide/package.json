@@ -1,0 +1,67 @@
+{
+    "name": "@layout_generator/ide",
+    "private": true,
+    "author": "@tajpouria",
+    "version": "1.0.0",
+    "description": "IDE",
+    "keywords": [
+        "layout generator ide",
+        "json schema"
+    ],
+    "repository": {
+        "type": "git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"npm run watch:scss\" \"npm run watch:ts\"",
+        "watch:ts": "npm run build:css && react-scripts-ts start",
+        "watch:scss": "node-sass public/css/index.scss public/css/index.css -w",
+        "build": "npm run build:pre && npm run build:css && react-scripts-ts build",
+        "build:css": "node-sass public/css/index.scss public/css/index.css",
+        "build:dev": "npm run build:pre && npm run build:css && npm run build:webpack-dev",
+        "build:prod": "npm run build:pre && npm run build:css && npm run build:webpack-prod",
+        "build:webpack-dev": "set NODE_ENV=development && npm run build:css && webpack --progress",
+        "build:webpack-prod": "set NODE_ENV=production && npm run build:css && webpack --progress",
+        "build:pre": "rimraf build",
+        "test": "react-scripts-ts test --env=jsdom",
+        "eject": "react-scripts-ts eject"
+    },
+    "dependencies": {
+        "classnames": "2.2.6",
+        "connected-react-router": "6.4.0",
+        "history": "4.9.0",
+        "lodash": "4.17.11",
+        "react": "16.8.6",
+        "react-dom": "16.8.6",
+        "react-redux": "7.0.3",
+        "react-router": "5.0.0",
+        "redux-saga": "1.0.2",
+        "sha.js": "2.4.11"
+    },
+    "devDependencies": {
+        "@layout_generator/utility": "^1.0.0",
+        "@types/classnames": "2.2.7",
+        "@types/express": "4.16.1",
+        "@types/history": "4.7.2",
+        "@types/jest": "24.0.13",
+        "@types/lodash": "4.14.132",
+        "@types/node": "^12.7.2",
+        "@types/node-sass": "4.11.0",
+        "@types/react": "16.8.19",
+        "@types/react-dom": "16.8.4",
+        "@types/react-redux": "7.0.9",
+        "@types/react-router": "5.0.1",
+        "@types/webpack-env": "1.13.9",
+        "concurrently": "4.1.0",
+        "node-sass": "4.12.0",
+        "react-scripts-ts": "3.1.0",
+        "typescript": "3.5.1"
+    },
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "private"
+    },
+    "engines": {
+        "node": ">=10.0.0"
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "name": "layout_generator",
+    "private": true,
+    "author": "@tajpouria",
+    "version": "1.0.0",
+    "keywords": [
+        "LayoutGenerator"
+    ],
+    "repository": {
+        "type": "git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "lerna run build",
+        "cleanup": "lerna clean --yes && rm -rf ./node_modules",
+        "lerna": "lerna",
+        "test": "lerna run test",
+        "lint": "lerna run lint",
+        "prettier": "lerna run prettier",
+        "publish": "lerna publish"
+    },
+    "dependencies": {
+        "classnames": "2.2.6",
+        "connected-react-router": "6.4.0",
+        "dotenv": "8.0.0",
+        "history": "4.9.0",
+        "immer": "3.1.2",
+        "keycode": "2.2.0",
+        "lodash": "4.17.11",
+        "react": "16.8.6",
+        "react-dom": "16.8.6",
+        "react-redux": "7.0.3",
+        "react-router": "5.0.0",
+        "redux-saga": "1.0.2"
+    },
+    "devDependencies": {
+        "lerna": "^3.14.1",
+        "@types/classnames": "2.2.7",
+        "@types/dotenv": "6.1.1",
+        "@types/history": "4.7.2",
+        "@types/jest": "24.0.13",
+        "@types/lodash": "4.14.132",
+        "@types/node": "12.0.3",
+        "@types/react": "16.8.19",
+        "@types/react-dom": "16.8.4",
+        "@types/react-redux": "7.0.9",
+        "@types/react-router": "5.0.1",
+        "@types/webpack-env": "1.13.9",
+        "cross-env": "5.2.0",
+        "node-sass": "4.12.0",
+        "react-scripts-ts": "3.1.0",
+        "shelljs": "0.8.3",
+        "tslint": "5.16.0",
+        "tslint-config-prettier": "1.18.0",
+        "tslint-react": "4.0.0",
+        "typescript": "3.5.1"
+    },
+    "sideEffects": false,
+    "publishConfig": {
+        "access": "private"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "engines": {
+        "node": ">=10.0.0"
+    }
+}
