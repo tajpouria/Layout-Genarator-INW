@@ -40,25 +40,18 @@ function* inputChangeRequestWorker(action: ExtractActionByType<Generator>) {
         const upsideLayoutContainerPattern: any[] = [];
         const downsideLayoutContainerPattern: any[] = [];
 
-        let totalWeight = 0;
-        patterns.map(({ type, payload }: ILayoutTemplate) => {
-            const layOutWeight = PatternWeight[type];
-            totalWeight += layOutWeight * payload;
-        });
-        let weight = 0;
-
         patterns.map(pattern => {
             const layOutWeight = PatternWeight[pattern.type];
-            /* feeding buckets based on current weight :: seems like should whenEver first bucket reached max  weight stating next bucket filling */
-            const exception = weight !== 0.75 || layOutWeight === 0.25;
-            if (weight < totalWeight && totalWeight <= 2) {
-                if (weight < 1 && exception) {
+            /* feeding buckets based on current weight :: seems like should whenEver first bucket reached max weight stating next bucket filling */
+            const upsideLayoutContainerPatternWeight = upsideLayoutContainerPattern.reduce((a, b) => a + PatternWeight[b.type], 0);
+            const downsideLayoutContainerPatternWeight = downsideLayoutContainerPattern.reduce((a, b) => a + PatternWeight[b.type], 0);
+
+            if (upsideLayoutContainerPatternWeight + downsideLayoutContainerPatternWeight + layOutWeight <= 2) {
+                if (upsideLayoutContainerPatternWeight + layOutWeight <= 1) {
                     upsideLayoutContainerPattern.push(pattern);
                 } else {
                     downsideLayoutContainerPattern.push(pattern);
                 }
-
-                weight += layOutWeight;
             }
         });
 
